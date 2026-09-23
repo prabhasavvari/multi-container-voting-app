@@ -4,6 +4,8 @@ FROM python:3.11-slim
 # Step 2: Set the primary workspace directory inside the isolated container
 WORKDIR /app
 
+ENV PYTHONBUFFERED=1
+
 # Step 3: Copy the dependency checklist file from our laptop into the container workspace
 COPY requirements.txt /app/
 
