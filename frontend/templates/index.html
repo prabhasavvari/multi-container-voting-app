@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cats vs Dogs!</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px; }
+        .card { background: white; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        button { font-size: 20px; padding: 15px 30px; margin: 20px; border: none; border-radius: 5px; cursor: pointer; color: white; transition: 0.2s; }
+        .cat-btn { background-color: #3498db; }
+        .cat-btn:hover { background-color: #2980b9; }
+        .dog-btn { background-color: #e74c3c; }
+        .dog-btn:hover { background-color: #c0392b; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>VOTE: Cats vs Dogs</h1>
+        <form action="/vote" method="POST">
+            <button type="submit" name="vote" value="cats" class="cat-btn">🐱 Team Cats</button>
+            <button type="submit" name="vote" value="dogs" class="dog-btn">🐶 Team Dogs</button>
+        </form>
+        <p>Click your choice to submit your vote instantly to the database!</p>
+    </div>
+</body>
+</html>

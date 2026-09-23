@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Room 1: The High-Speed RAM Cache Layout
+  redis:
+    image: redis:7.0-alpine
+    container_name: cache_room
+    restart: always
+
+  # Room 2: The Python Web User Interface 
+  frontend:
+    build: ./frontend
+    container_name: web_frontend
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - redis
+
+  # Room 3: The Heavy Permanent Storage Database Vault
+  postgres:
+    image: postgres:15-alpine
+    container_name: database_vault
+    environment:
+      POSTGRES_USER: prabhas
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: voting_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  db_data:
